@@ -1,0 +1,29 @@
+import math
+
+sex = input('Please enter your sex(man or woman): ')
+age = int(input('Please enter your age: '))
+height = float(input('Please enter your height: '))
+actual_weight = float(input('Please enter you actual weight: '))
+
+def checking_body_weight(x, y, z, a):
+    if x == 'man':
+        ibd = 50 + 2.3 * z
+        nbd = ibd + (0.25 * (a - ibd))
+    elif x == 'woman':
+        ibd = 45.5 + 2.3 * z
+        nbd = ibd + (0.25 * (a - ibd))
+    return ibd, ndb
+
+while True:
+    select = input('Press Enter or 'q' for exit: ')
+
+    if select == 'q':
+        Break;
+
+    #Select if the user wants to check his/her weight or to see the ideal body weight based on sex, age and height
+    select1 = input('Press 1 for checking your body weight or press 2 for seeing the ideal body weight: ')
+
+    if select1 == '1':
+        w1 = checking_body_weight(sex, age, height, actual_weight);
+    elif select1 == '2':
+        w2 = ideal_body_weight(sex, age, height, actual_weight);
