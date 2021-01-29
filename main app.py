@@ -1,5 +1,8 @@
 import math
 
+print('Diclaimer: The program is not made from doctors so the results might be wrong.', '\n',
+'If you want accurate results, you should see a doctor.')
+
 sex = input('Please enter your sex(man or woman): ')
 age = int(input('Please enter your age: '))
 height = float(input('Please enter your height(m), (eg. 1.70): '))
