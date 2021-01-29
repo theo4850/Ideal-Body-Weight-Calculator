@@ -2,8 +2,10 @@ import math
 
 sex = input('Please enter your sex(man or woman): ')
 age = int(input('Please enter your age: '))
-height = float(input('Please enter your height: '))
-actual_weight = float(input('Please enter you actual weight: '))
+height = float(input('Please enter your height(m), (eg. 1.70): '))
+actual_weight = float(input('Please enter you actual weight(kg): '))
+if age < 18:
+    bmi = int(input('Please enter your body mass index: '))
 
 def checking_body_weight(x, y, z, a):
     if x == 'man':
@@ -12,7 +14,23 @@ def checking_body_weight(x, y, z, a):
     elif x == 'woman':
         ibd = 45.5 + 2.3 * z
         nbd = ibd + (0.25 * (a - ibd))
-    return ibd, ndb
+    return ibd, nbd
+
+def children_ideal_body_weight(x, y):
+    ideal_body_weight = x * 0.5 * (y)^2
+    return ideal_body_weight
+
+def lose_add_weight(ib, nb):
+    if ib > actual_weight and nb > actual_weight:
+        print('You should add weight.')
+    elif ib == actual_weight and nb > actual_weight:
+        print('You have the ideal body weight but you need to add weight to have the nutrition body weight')
+    elif ib < actual_weight and nb > actual_weight:
+        print('You need to add some more weight to have the nutrition weight.')
+    elif nb == actual_weight:
+        print('You have the perfect body weight for you.')
+    elif nb < actual_weight:
+        print('You need to lose some weight.')
 
 while True:
     select = input('Press Enter or 'q' for exit: ')
@@ -20,10 +38,12 @@ while True:
     if select == 'q':
         Break;
 
-    #Select if the user wants to check his/her weight or to see the ideal body weight based on sex, age and height
-    select1 = input('Press 1 for checking your body weight or press 2 for seeing the ideal body weight: ')
+    if age >= 18:
+        b, c = checking_body_weight(sex, age, height, actual_weight)
+        print('Your ideal body weight is ', b, 'and your nutrition body weight is ', c, '\n')
+        abc = lose_add_weight(b, c)
+    elif age < 18:
+        d = children_ideal_body_weight(bmi, height)
+        print('your ideal body weight is ', d)
 
-    if select1 == '1':
-        w1 = checking_body_weight(sex, age, height, actual_weight);
-    elif select1 == '2':
-        w2 = ideal_body_weight(sex, age, height, actual_weight);
+print('End of program!', '\n', 'Thank you for using our program!')
